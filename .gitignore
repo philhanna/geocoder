@@ -1,4 +1,5 @@
 *.swp
+*.db
 *.pyc
 *.pyo
 .pytest_cache
