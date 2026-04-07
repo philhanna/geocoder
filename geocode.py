@@ -27,9 +27,9 @@ def geocode(address: str) -> Tuple[float, float]:
     db_path = "geocode_cache.db"
 
     # 1. Look in cache
-    conn = sqlite3.connect(db_path)
+    con = sqlite3.connect(db_path)
     try:
-        conn.execute(
+        con.execute(
             """
             CREATE TABLE IF NOT EXISTS geocode_cache (
                 address TEXT PRIMARY KEY,
@@ -38,9 +38,9 @@ def geocode(address: str) -> Tuple[float, float]:
             )
             """
         )
-        conn.commit()
+        con.commit()
 
-        row = conn.execute(
+        row = con.execute(
             """
             SELECT latitude, longitude
             FROM geocode_cache
@@ -87,16 +87,16 @@ def geocode(address: str) -> Tuple[float, float]:
             raise GeocodeError("Census API response did not include coordinates.")
 
         # 3. Store in cache
-        conn.execute(
+        con.execute(
             """
             INSERT OR REPLACE INTO geocode_cache (address, latitude, longitude)
             VALUES (?, ?, ?)
             """,
             (normalized_address, latitude, longitude),
         )
-        conn.commit()
+        con.commit()
 
         return (latitude, longitude)
 
     finally:
-        conn.close()
+        con.close()
