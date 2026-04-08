@@ -9,6 +9,24 @@ same address do not make a network call.
 
 Requires Python 3.9+.
 
+### As a library dependency
+
+To use `geocode` as a dependency in another project, install it directly from GitHub:
+
+```bash
+pip install git+https://github.com/philhanna/geocode.git
+```
+
+Then call it from your code:
+
+```python
+from geocode import geocode, GeocodeError
+
+lat, lon = geocode("1600 Pennsylvania Ave NW, Washington, DC")
+```
+
+### As a standalone tool
+
 **Linux/macOS**
 ```bash
 git clone https://github.com/philhanna/geocode.git
