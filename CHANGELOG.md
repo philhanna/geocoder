@@ -1,9 +1,17 @@
 # Changelog
 
-## Unreleased
+## [1.0.0] - 2026-04-07
 
 ### Added
 - Document how to obtain the `sqlite3` command-line tool in README
+- Document library installation and usage in README
+- Rename top-level package from `geocode` to `geocoder`
+- Windows support: `DEFAULT_CONFIG_PATH` resolves to `%APPDATA%\geocode\config.yaml` on Windows; `geocode.bat` launcher added
+- Fix Windows venv activation command in README (`.venv\Scripts\activate.bat`)
+
+### Changed
+- CLI moved into `geocoder.adapters` package as `geocode.py`; `geocode` bash launcher at project root
+- Adapter and port modules renamed to match their class names
 
 ## [0.1.0] - 2026-04-07
 
