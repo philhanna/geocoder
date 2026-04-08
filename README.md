@@ -13,8 +13,8 @@ Requires Python 3.9+.
 
 **Linux/macOS**
 ```bash
-git clone https://github.com/philhanna/geocode.git
-cd geocode
+git clone https://github.com/philhanna/geocoder.git
+cd geocoder
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -22,8 +22,8 @@ pip install -e ".[dev]"
 
 **Windows**
 ```bat
-git clone https://github.com/philhanna/geocode.git
-cd geocode
+git clone https://github.com/philhanna/geocoder.git
+cd geocoder
 python -m venv .venv
 .venv\Scripts\activate.bat
 pip install -e ".[dev]"
@@ -34,7 +34,7 @@ pip install -e ".[dev]"
 To use `geocoder` as a dependency in another project, install it directly from GitHub:
 
 ```bash
-pip install git+https://github.com/philhanna/geocode.git
+pip install git+https://github.com/philhanna/geocoder.git
 ```
 
 Then call it from your code:
@@ -51,19 +51,19 @@ The application looks for its config file in a platform-specific location:
 
 | Platform | Default config path |
 |----------|-------------------|
-| Linux/macOS | `~/.config/geocode/config.yaml` |
-| Windows | `%APPDATA%\geocode\config.yaml` |
+| Linux/macOS | `~/.config/geocoder/config.yaml` |
+| Windows | `%APPDATA%\geocoder\config.yaml` |
 
 **Linux/macOS**
 ```bash
-mkdir -p ~/.config/geocode
-cp sample_config.yaml ~/.config/geocode/config.yaml
+mkdir -p ~/.config/geocoder
+cp sample_config.yaml ~/.config/geocoder/config.yaml
 ```
 
 **Windows**
 ```bat
-mkdir "%APPDATA%\geocode"
-copy sample_config.yaml "%APPDATA%\geocode\config.yaml"
+mkdir "%APPDATA%\geocoder"
+copy sample_config.yaml "%APPDATA%\geocoder\config.yaml"
 ```
 
 Edit the file to set the path where the cache database should be stored:
@@ -71,13 +71,13 @@ Edit the file to set the path where the cache database should be stored:
 **Linux/macOS**
 ```yaml
 cache:
-  db_path: ~/.local/share/geocode/cache.db
+  db_path: ~/.local/share/geocoder/cache.db
 ```
 
 **Windows**
 ```yaml
 cache:
-  db_path: ~\AppData\Local\geocode\cache.db
+  db_path: ~\AppData\Local\geocoder\cache.db
 ```
 
 The database file and its parent directory are created automatically on first
@@ -138,11 +138,11 @@ You can inspect the cache using the `sqlite3` command-line tool:
 
 **Linux/macOS**
 ```bash
-sqlite3 ~/.local/share/geocode/cache.db \
+sqlite3 ~/.local/share/geocoder/cache.db \
   "SELECT address, latitude, longitude FROM geocode_cache;"
 ```
 
 **Windows**
 ```bat
-sqlite3 "%LOCALAPPDATA%\geocode\cache.db" "SELECT address, latitude, longitude FROM geocode_cache;"
+sqlite3 "%LOCALAPPDATA%\geocoder\cache.db" "SELECT address, latitude, longitude FROM geocode_cache;"
 ```
