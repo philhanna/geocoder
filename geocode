@@ -1,2 +1,2 @@
 #!/bin/bash
-exec "$(dirname "$0")/.venv/bin/python" -m geocode.adapters.cli "$@"
+exec "$(dirname "$0")/.venv/bin/python" -m geocode.adapters.geocode "$@"
