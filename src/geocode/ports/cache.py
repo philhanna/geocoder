@@ -8,5 +8,5 @@ class GeocodeCachePort(ABC):
         """Return (latitude, longitude) if cached, else None."""
 
     @abstractmethod
-    def store(self, address: str, latitude: float, longitude: float) -> None:
+    def store(self, address: str, latitude: float, longitude: float, jsonstring: str) -> None:
         """Persist a geocode result."""

@@ -16,10 +16,17 @@ class SqliteCacheAdapter(GeocodeCachePort):
                 CREATE TABLE IF NOT EXISTS geocode_cache (
                     address TEXT PRIMARY KEY,
                     latitude REAL NOT NULL,
-                    longitude REAL NOT NULL
+                    longitude REAL NOT NULL,
+                    jsonstring TEXT
                 )
                 """
             )
+            try:
+                con.execute(
+                    "ALTER TABLE geocode_cache ADD COLUMN jsonstring TEXT"
+                )
+            except sqlite3.OperationalError:
+                pass  # column already exists
 
     def lookup(self, address: str) -> Optional[Tuple[float, float]]:
         with sqlite3.connect(self._db_path) as con:
@@ -29,12 +36,12 @@ class SqliteCacheAdapter(GeocodeCachePort):
             ).fetchone()
         return (row[0], row[1]) if row else None
 
-    def store(self, address: str, latitude: float, longitude: float) -> None:
+    def store(self, address: str, latitude: float, longitude: float, jsonstring: str) -> None:
         with sqlite3.connect(self._db_path) as con:
             con.execute(
                 """
-                INSERT OR REPLACE INTO geocode_cache (address, latitude, longitude)
-                VALUES (?, ?, ?)
+                INSERT OR REPLACE INTO geocode_cache (address, latitude, longitude, jsonstring)
+                VALUES (?, ?, ?, ?)
                 """,
-                (address, latitude, longitude),
+                (address, latitude, longitude, jsonstring),
             )

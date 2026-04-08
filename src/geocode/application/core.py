@@ -30,6 +30,6 @@ def geocode(
     if result is not None:
         return result
 
-    coords = geocoder.geocode(normalized)
-    cache.store(normalized, coords[0], coords[1])
-    return coords
+    latitude, longitude, jsonstring = geocoder.geocode(normalized)
+    cache.store(normalized, latitude, longitude, jsonstring)
+    return (latitude, longitude)

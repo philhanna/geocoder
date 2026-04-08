@@ -1,3 +1,4 @@
+import json
 from typing import Tuple
 
 import requests
@@ -11,7 +12,7 @@ class CensusGeocoderAdapter(GeocoderPort):
         "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
     )
 
-    def geocode(self, address: str) -> Tuple[float, float]:
+    def geocode(self, address: str) -> Tuple[float, float, str]:
         params = {
             "address": address,
             "benchmark": "Public_AR_Current",
@@ -40,4 +41,4 @@ class CensusGeocoderAdapter(GeocoderPort):
         if latitude is None or longitude is None:
             raise GeocodeError("Census API response did not include coordinates.")
 
-        return (latitude, longitude)
+        return (latitude, longitude, json.dumps(payload))
