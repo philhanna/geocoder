@@ -10,9 +10,3 @@ class GeocodeCachePort(ABC):
     @abstractmethod
     def store(self, address: str, latitude: float, longitude: float) -> None:
         """Persist a geocode result."""
-
-
-class GeocoderPort(ABC):
-    @abstractmethod
-    def geocode(self, address: str) -> Tuple[float, float]:
-        """Return (latitude, longitude) for the given address."""

@@ -2,7 +2,7 @@ from typing import Tuple
 
 import requests
 
-from ..core import GeocodeError
+from ..application.core import GeocodeError
 from ..ports import GeocoderPort
 
 

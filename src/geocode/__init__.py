@@ -3,8 +3,8 @@ from typing import Tuple
 
 from .adapters.census import CensusGeocoderAdapter
 from .adapters.sqlite_cache import SqliteCacheAdapter
-from .core import GeocodeError
-from .core import geocode as _geocode
+from .application.core import GeocodeError
+from .application.core import geocode as _geocode
 
 __all__ = ["geocode", "GeocodeError"]
 

@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from .ports import GeocodeCachePort, GeocoderPort
+from ..ports import GeocodeCachePort, GeocoderPort
 
 
 class GeocodeError(Exception):
