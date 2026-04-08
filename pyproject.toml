@@ -7,7 +7,13 @@ name = "geocode"
 version = "0.1.0"
 requires-python = ">=3.9"
 dependencies = [
+    "pyyaml",
     "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
 ]
 
 [tool.hatch.build.targets.wheel]

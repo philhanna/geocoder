@@ -1,12 +1,14 @@
-# geocode.adapters.sqlite_cache
 import sqlite3
 from typing import Optional, Tuple
 
+from .. import config as geocode_config
 from ..ports import GeocodeCachePort
 
 
 class SqliteCacheAdapter(GeocodeCachePort):
-    def __init__(self, db_path: str = "geocode_cache.db") -> None:
+    def __init__(self, db_path: Optional[str] = None) -> None:
+        if db_path is None:
+            db_path = geocode_config.get_db_path()
         self._db_path = db_path
         with sqlite3.connect(self._db_path) as con:
             con.execute(

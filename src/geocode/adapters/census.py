@@ -1,4 +1,3 @@
-# geocode.adapters.census
 from typing import Tuple
 
 import requests
