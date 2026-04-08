@@ -101,7 +101,7 @@ pipelines.
 from geocode import geocode, GeocodeError
 
 try:
-    lat, lon = geocode("7500 Cadbury Ct, Raleigh, NC")
+    lat, lon = geocode("123 Main St, Raleigh, NC")
     print(f"Latitude: {lat}, Longitude: {lon}")
 except GeocodeError as e:
     print(f"Error: {e}")
@@ -110,7 +110,13 @@ except GeocodeError as e:
 ## Cache
 
 Results are stored in the SQLite database configured under `cache.db_path`.
-You can inspect the cache directly:
+You can inspect the cache using the `sqlite3` command-line tool:
+
+- **Linux**: install via your package manager — `sudo apt install sqlite3` (Debian/Ubuntu) or `sudo dnf install sqlite` (Fedora/RHEL)
+- **macOS**: included with the OS; also available via `brew install sqlite`
+- **Windows**: download the precompiled binary from https://www.sqlite.org/download.html and add it to your `PATH`
+
+
 
 **Linux/macOS**
 ```bash
