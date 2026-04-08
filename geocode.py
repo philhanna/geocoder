@@ -8,8 +8,8 @@ from typing import Optional, Tuple
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from geocode import GeocodeError
-from geocode.adapters.census import CensusGeocoderAdapter
-from geocode.adapters.sqlite_cache import SqliteCacheAdapter
+from geocode.adapters.census_geocoder_adapter import CensusGeocoderAdapter
+from geocode.adapters.sqlite_cache_adapter import SqliteCacheAdapter
 from geocode.application.core import geocode as _geocode
 from geocode.ports import GeocodeCachePort
 

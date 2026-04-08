@@ -1,5 +1,5 @@
 # geocode.ports
-from .cache import GeocodeCachePort
-from .geocoder import GeocoderPort
+from .geocode_cache_port import GeocodeCachePort
+from .geocoder_port import GeocoderPort
 
 __all__ = ["GeocodeCachePort", "GeocoderPort"]

@@ -1,8 +1,8 @@
 # geocode
 from typing import Tuple
 
-from .adapters.census import CensusGeocoderAdapter
-from .adapters.sqlite_cache import SqliteCacheAdapter
+from .adapters.census_geocoder_adapter import CensusGeocoderAdapter
+from .adapters.sqlite_cache_adapter import SqliteCacheAdapter
 from .application.core import GeocodeError
 from .application.core import geocode as _geocode
 
