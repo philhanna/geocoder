@@ -1,8 +1,13 @@
+import os
+import platform
 from pathlib import Path
 
 import yaml
 
-DEFAULT_CONFIG_PATH = Path.home() / ".config" / "geocode" / "config.yaml"
+if platform.system() == "Windows":
+    DEFAULT_CONFIG_PATH = Path(os.environ["APPDATA"]) / "geocode" / "config.yaml"
+else:
+    DEFAULT_CONFIG_PATH = Path.home() / ".config" / "geocode" / "config.yaml"
 
 
 def load(config_path: Path = DEFAULT_CONFIG_PATH) -> dict:
@@ -10,7 +15,8 @@ def load(config_path: Path = DEFAULT_CONFIG_PATH) -> dict:
 
     Args:
         config_path: Path to the YAML config file. Defaults to
-            ~/.config/geocode/config.yaml.
+            ``~/.config/geocode/config.yaml`` on Linux/macOS or
+            ``%APPDATA%\\geocode\\config.yaml`` on Windows.
 
     Returns:
         Parsed contents of the config file.
@@ -31,7 +37,8 @@ def get_db_path(config_path: Path = DEFAULT_CONFIG_PATH) -> str:
 
     Args:
         config_path: Path to the YAML config file. Defaults to
-            ~/.config/geocode/config.yaml.
+            ``~/.config/geocode/config.yaml`` on Linux/macOS or
+            ``%APPDATA%\\geocode\\config.yaml`` on Windows.
 
     Returns:
         The configured database file path string.
