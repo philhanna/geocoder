@@ -1,4 +1,5 @@
 import sqlite3
+from pathlib import Path
 from typing import Optional, Tuple
 
 from .. import config as geocode_config
@@ -9,7 +10,8 @@ class SqliteCacheAdapter(GeocodeCachePort):
     def __init__(self, db_path: Optional[str] = None) -> None:
         if db_path is None:
             db_path = geocode_config.get_db_path()
-        self._db_path = db_path
+        self._db_path = str(Path(db_path).expanduser())
+        Path(self._db_path).parent.mkdir(parents=True, exist_ok=True)
         with sqlite3.connect(self._db_path) as con:
             con.execute(
                 """
