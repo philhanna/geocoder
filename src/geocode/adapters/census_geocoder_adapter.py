@@ -8,11 +8,34 @@ from ..ports import GeocoderPort
 
 
 class CensusGeocoderAdapter(GeocoderPort):
+    """Geocoder adapter backed by the U.S. Census Bureau Geocoding API.
+
+    Implements :class:`GeocoderPort` by calling the Census Bureau's
+    one-line address geocoding endpoint. Returns coordinates together with
+    the full API response payload for storage in the cache.
+
+    Reference: https://geocoding.geo.census.gov/geocoder/
+    """
+
     _BASE_URL = (
         "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
     )
 
     def geocode(self, address: str) -> Tuple[float, float, str]:
+        """Resolve an address to coordinates using the Census geocoding API.
+
+        Args:
+            address: The normalised address string to geocode.
+
+        Returns:
+            A three-tuple of ``(latitude, longitude, jsonstring)`` where
+            ``jsonstring`` is the full API response serialised as JSON.
+
+        Raises:
+            GeocodeError: if the HTTP request fails, the response is not valid
+                JSON, no address matches are returned, or coordinates are
+                missing from the response.
+        """
         params = {
             "address": address,
             "benchmark": "Public_AR_Current",
