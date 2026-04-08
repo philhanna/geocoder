@@ -1,1 +1,1 @@
-# geocode.adapters
+# geocoder.adapters

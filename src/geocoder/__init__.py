@@ -1,4 +1,4 @@
-# geocode
+# geocoder
 from typing import Tuple
 
 from .adapters.census_geocoder_adapter import CensusGeocoderAdapter
