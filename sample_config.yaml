@@ -1,2 +1,2 @@
 cache:
-  db_path: ~/.config/geocode/cache.db
+  db_path: /tmp/geocode/cache.db
