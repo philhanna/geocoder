@@ -1,11 +1,6 @@
-#!/usr/bin/env python
 import argparse
 import sys
-from pathlib import Path
 from typing import Optional, Tuple
-
-# Prepend src/ so the geocode package is found before this script.
-sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from geocode import GeocodeError
 from geocode.adapters.census_geocoder_adapter import CensusGeocoderAdapter
