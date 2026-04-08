@@ -2,11 +2,11 @@ import argparse
 import sys
 from typing import Optional, Tuple
 
-from geocode import GeocodeError
-from geocode.adapters.census_geocoder_adapter import CensusGeocoderAdapter
-from geocode.adapters.sqlite_cache_adapter import SqliteCacheAdapter
-from geocode.application.core import geocode as _geocode
-from geocode.ports import GeocodeCachePort
+from geocoder import GeocodeError
+from geocoder.adapters.census_geocoder_adapter import CensusGeocoderAdapter
+from geocoder.adapters.sqlite_cache_adapter import SqliteCacheAdapter
+from geocoder.application.core import geocode as _geocode
+from geocoder.ports import GeocodeCachePort
 
 
 class _TrackingCache(GeocodeCachePort):
@@ -72,7 +72,7 @@ def main() -> None:
             source = "cache" if cache.hit else "API"
             print(f"({lat}, {lon})  [{source}]")
         else:
-            from geocode import geocode
+            from geocoder import geocode
             lat, lon = geocode(args.address)
             print(f"({lat}, {lon})")
     except GeocodeError as e:

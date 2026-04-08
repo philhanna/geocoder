@@ -2,7 +2,7 @@ import sqlite3
 
 import pytest
 
-from geocode.adapters.sqlite_cache_adapter import SqliteCacheAdapter
+from geocoder.adapters.sqlite_cache_adapter import SqliteCacheAdapter
 
 
 @pytest.fixture()

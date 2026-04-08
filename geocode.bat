@@ -1,2 +1,2 @@
 @echo off
-"%~dp0.venv\Scripts\python.exe" -m geocode.adapters.geocode %*
+"%~dp0.venv\Scripts\python.exe" -m geocoder.adapters.geocode %*

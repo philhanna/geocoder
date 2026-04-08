@@ -2,8 +2,8 @@ from typing import Optional, Tuple
 
 import pytest
 
-from geocode.application.core import GeocodeError, geocode
-from geocode.ports import GeocodeCachePort, GeocoderPort
+from geocoder.application.core import GeocodeError, geocode
+from geocoder.ports import GeocodeCachePort, GeocoderPort
 
 
 class StubCache(GeocodeCachePort):

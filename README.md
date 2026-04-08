@@ -11,7 +11,7 @@ Requires Python 3.9+.
 
 ### As a library dependency
 
-To use `geocode` as a dependency in another project, install it directly from GitHub:
+To use `geocoder` as a dependency in another project, install it directly from GitHub:
 
 ```bash
 pip install git+https://github.com/philhanna/geocode.git
@@ -20,7 +20,7 @@ pip install git+https://github.com/philhanna/geocode.git
 Then call it from your code:
 
 ```python
-from geocode import geocode, GeocodeError
+from geocoder import geocode, GeocodeError
 
 lat, lon = geocode("1600 Pennsylvania Ave NW, Washington, DC")
 ```
@@ -116,7 +116,7 @@ pipelines.
 ### Python API
 
 ```python
-from geocode import geocode, GeocodeError
+from geocoder import geocode, GeocodeError
 
 try:
     lat, lon = geocode("123 Main St, Raleigh, NC")

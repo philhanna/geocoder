@@ -1,7 +1,7 @@
 import pytest
 
-from geocode.adapters.geocode import _TrackingCache
-from geocode.adapters.sqlite_cache_adapter import SqliteCacheAdapter
+from geocoder.adapters.geocode import _TrackingCache
+from geocoder.adapters.sqlite_cache_adapter import SqliteCacheAdapter
 
 
 @pytest.fixture()
