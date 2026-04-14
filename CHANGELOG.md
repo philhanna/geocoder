@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.2] - 2026-04-14
+
+### Fixed
+- `DEFAULT_CONFIG_PATH` in `config.py` corrected to use `geocoder` directory (was still referencing `geocode` after package rename)
+
 ## [1.0.0] - 2026-04-07
 
 ### Added
