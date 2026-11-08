@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3] - 2026-11-08
+
+### Changed
+- Moved `pytest` into the main `dependencies` in `pyproject.toml`; removed the `dev` optional-dependencies group
+- README installation steps now use `pip install -e .`
+
 ## [1.0.2] - 2026-04-14
 
 ### Fixed
