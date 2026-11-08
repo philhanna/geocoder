@@ -9,10 +9,6 @@ requires-python = ">=3.9"
 dependencies = [
     "pyyaml",
     "requests",
-]
-
-[project.optional-dependencies]
-dev = [
     "pytest",
 ]
 
