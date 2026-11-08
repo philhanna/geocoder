@@ -17,7 +17,7 @@ git clone https://github.com/philhanna/geocoder.git
 cd geocoder
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 **Windows**
@@ -26,7 +26,7 @@ git clone https://github.com/philhanna/geocoder.git
 cd geocoder
 python -m venv .venv
 .venv\Scripts\activate.bat
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 ### As a library dependency
